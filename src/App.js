@@ -10,18 +10,20 @@ class App extends React.Component {
     this.state = {
       addStateDislay: false,
       newContent: '',
+      wrongString: false,
       todoList: [
-        {id: 1, content: 'College', isCompletion: true},
-        {id: 2, content: 'Workout', isCompletion: true},
-        {id: 3, content: 'Working on Project', isCompletion: false},
-        {id: 4, content: 'Doing Homework', isCompletion: false},
+        // {id: 1, content: 'College', isCompletion: true},
+        // {id: 2, content: 'Workout', isCompletion: true},
+        // {id: 3, content: 'Working on Project', isCompletion: false},
+        // {id: 4, content: 'Doing Homework', isCompletion: false},
       ]
     };
     this.changeCompletion = this.changeCompletion.bind(this);
     this.onAddStateDislay = this.onAddStateDislay.bind(this);
     this.offAddStateDislay = this.offAddStateDislay.bind(this);
     this.updateTodoList = this.updateTodoList.bind(this);
-    this.updateContent = this.updateContent.bind(this);
+    this.saveContent = this.saveContent.bind(this);
+    this.onChangeValue = this.onChangeValue.bind(this);
   }
 
   changeCompletion(item) {
@@ -51,26 +53,39 @@ class App extends React.Component {
   }
 
   updateTodoList(event) {
-    const content = this.state.newContent;
+    let content = this.state.newContent;
+    content = content.trim();
+    if(content.length === 0) {
+      this.setState({
+        wrongString: true
+      })
+      return;
+    }
     this.setState({
       todoList: [
         ...this.state.todoList,
         {id: this.state.todoList.length+1, content: content, isCompletion: false}
       ],
-      newContent: ''
+      newContent: '',
+      wrongString: false
     })
     this.offAddStateDislay();
-    console.log('new content: ', this.state.newContent);
   }
 
-  updateContent(event) {
+  saveContent(event) {
+    if (event.keyCode === 13){
+      this.updateTodoList();
+    }
+  }
+
+  onChangeValue(event) {
     this.setState({
       newContent: event.target.value
     })
   }
 
   render(){
-    const { todoList } = this.state;
+    const { todoList, newContent, wrongString } = this.state;
     const todoListYes = todoList.filter(item => !item.isCompletion);
     const todoListNo = todoList.filter(item => item.isCompletion);
     return (
@@ -123,9 +138,11 @@ class App extends React.Component {
           className="close fas fa-times"></i>
           <div className="add-control">
             <input 
-            className="add-input" 
+            className={classnames("add-input", {'wrong-string': wrongString})} 
             placeholder="Write somethings here . . ." 
-            onKeyUp={this.updateContent}
+            value={newContent}
+            onChange={this.onChangeValue}
+            onKeyUp={this.saveContent}
             />
             <button onClick={this.updateTodoList} className="add-button">ADD</button>
           </div>

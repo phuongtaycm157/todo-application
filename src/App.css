@@ -1,8 +1,9 @@
 .App {
-  width: 50vw;
+  width: 100vw;
   height: 100vh;
   margin: auto;
   background-color: #82cad4;
+  border-radius: 10px;
 }
 .App header {
   color: white;
@@ -104,6 +105,7 @@
   border: none;
   border-radius: 5px;
   box-shadow: 0 0 2pt #20a9bc;
+  /* box-sizing: border-box; */
 }
 .App .screen .add-control .add-input::placeholder {
   font-style: italic;
@@ -129,4 +131,35 @@
 }
 .App .screen .add-control .add-button:focus {
   outline: none;
+}
+.wrong-string {
+  border: 1px solid red !important;
+}
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .App {
+    width: 70vw;
+  }
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .App {
+    width: 50vw;
+  }
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .App {
+    width: 40vw;
+  }
+}
+
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+  .App {
+    width: 35vw;
+  }
 }
