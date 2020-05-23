@@ -1,38 +1,132 @@
 .App {
+  width: 50vw;
+  height: 100vh;
+  margin: auto;
+  background-color: #82cad4;
+}
+.App header {
+  color: white;
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  padding-top: 20px;
+}
+.App header i {
+  margin-left: 25px;
+}
+.App header .title {
   text-align: center;
+  width: 100%;
+  font-weight: 600;
+  font-size: 24px;
+  letter-spacing: 5px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App footer {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App footer button {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 3pt #e1e1e1;
+  transition: all .1s;
+  cursor: pointer;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App footer button:active,
+.App footer button:focus {
+  outline: none;
+}
+.App footer button:active {
+  transform: translateY(2px);
+}
+.App footer button i {
+  color: #82cad4;
+  font-size: 18px;
+}
+.App .screen {
+  width: 90%;
+  height: 80%;
+  margin: auto;
+  margin-top: 25px;
+  position: relative;
+}
+.App .screen .illustration {
+  width: 80%;
+  height: 100%;
+  display: block;
+  margin: auto;
+}
+.none-display {
+  display: none !important;
+}
+.App .todo-list .upcoming {
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: Poppins, sans-serif;
+  font-size: 14px;
+  margin-bottom: 7px;
+  margin-left: 15px;
+}
+.h-space {
+  height: 20px;
+}
+.App .screen .close {
+  color: white;
+  font-size: 32px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: .1s;
+}
+.App .screen .close:active {
+  transform: translateY(1px);
+}
+.App .screen .add-control {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.App .screen .add-control .add-input {
+  width: 80%;
+  font-size: 16px;
+  font-family: Poppins, sans-serif;
+  padding: 17px 30px;
+  margin-top: 64px;
+  margin-bottom: 30px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 2pt #20a9bc;
+}
+.App .screen .add-control .add-input::placeholder {
+  font-style: italic;
+  letter-spacing: 2px;
+}
+.App .screen .add-control .add-input:focus {
+  outline: none;
+}
+.App .screen .add-control .add-button {
+  border: none;
+  font-weight: bold;
+  font-size: 24px;
+  width: 100px;
+  height: 40px;
+  background-color: #7C809BFF;
   color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 2pt #20a9bc;
+  transition: .1s;
 }
-
-.App-link {
-  color: #61dafb;
+.App .screen .add-control .add-button:active {
+  transform: translateY(2px);
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App .screen .add-control .add-button:focus {
+  outline: none;
 }

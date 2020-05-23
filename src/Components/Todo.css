@@ -1,0 +1,24 @@
+.todo {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: white;
+  box-shadow: 0 0 3pt#20a9bc;
+  border-radius: 5px;
+  padding: 17px 30px;
+  color: #444;
+  margin-bottom: 13px;
+  font-weight: 700;
+  font-size: 16px;
+  font-family: Lato, Poppins, Arial, sans-serif;
+  cursor: pointer;
+}
+.todo .content {
+  margin-right: 5px;
+}
+.is-complete {
+  background-color: #82cad4;
+  color: white;
+  text-decoration: line-through;
+  font-weight: 600;
+}
